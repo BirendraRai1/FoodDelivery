@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { SIZES, icons, COLORS, FONTS, GOOGLE_API_KEY } from '../constants';
@@ -18,7 +18,7 @@ const OrderDelivery = ({ route, navigation }) => {
     const [isReady, setIsReady] = useState(false)
     const [angle, setAngle] = useState(0)
 
-    React.useEffect(() => {
+    useEffect(() => {
         let { restaurant, currentLocation } = route.params;
         console.log(' restaurant inside the OrderDelivery ', restaurant);
         console.log(' currentLocation inside the OrderDelivery ', currentLocation);

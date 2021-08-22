@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Text, View, SafeAreaView, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { icons, images, SIZES, COLORS, FONTS } from '../constants';
 
 const Home = ({ navigation }) => {
@@ -377,7 +376,7 @@ const Home = ({ navigation }) => {
 
     const renderMainCategories = () => {
 
-        const onSelctCategory = (category) => {
+        const onSelectCategory = (category) => {
             let restaurantList = restaurantData.filter(a => a.categories.includes(category.id))
             setRestaurants(restaurantList);
             console.log(' restaurants inside the renderMainCategories ', restaurants);
@@ -385,7 +384,6 @@ const Home = ({ navigation }) => {
         }
 
         const renderItem = ({ item }) => {
-            //console.log('Entered into the renderItem ', { item });
             return (
                 <TouchableOpacity
                     style={{
@@ -398,7 +396,7 @@ const Home = ({ navigation }) => {
                         marginRight: SIZES.padding,
                         ...styles.shadow
                     }}
-                    onPress={() => onSelctCategory(item)}
+                    onPress={() => onSelectCategory(item)}
                 >
                     <View
                         style={{
@@ -463,7 +461,7 @@ const Home = ({ navigation }) => {
             return (
                 <TouchableOpacity
                     style={{
-                        marginBottom: SIZES.padding * 2
+                        marginBottom: SIZES.padding * 2,
                     }}
                     onPress={() => navigation.navigate('Restaurant', {
                         item,

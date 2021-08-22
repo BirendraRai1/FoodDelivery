@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, SafeAreaView, StyleSheet, TouchableOpacity, Image, Animated } from 'react-native';
 import { isIphoneX } from 'react-native-iphone-x-helper';
 import { icons, COLORS, SIZES, FONTS } from '../constants';
@@ -10,7 +10,7 @@ const Restaurant = ({ route, navigation }) => {
     const [currentLocation, setCurrentLocation] = useState(null);
     const [orderItems, setOrderItems] = useState([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         let { item, currentLocation } = route.params;
 
         setRestaurant(item)
@@ -124,7 +124,7 @@ const Restaurant = ({ route, navigation }) => {
             <Animated.ScrollView
                 horizontal
                 pagingEnabled
-                scrollEventThrottle={16}
+                scrollEventThrottle={20}
                 snapToAlignment='center'
                 showsHorizontalScrollIndicator={false}
                 onScroll={Animated.event([{
